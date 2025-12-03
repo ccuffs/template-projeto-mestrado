@@ -124,6 +124,12 @@
 
 \def\address#1{\gdef\@address{#1}}
 
+% Comando para criar título automaticamente
+\newcommand{\titulo}[1]{%
+  \title{#1}%
+  \maketitle%
+}
+
 \def\@maketitle{\newpage
  %\null % isso dava um espaco extra antes do title
  \begin{center}
@@ -132,12 +138,19 @@
 \vspace*{-.7cm}
   {\XVIPT\bf\@title\par}
    \vglue 6pt plus 3pt minus 3pt
-  {\normalsize
-   \textbf{\begin{tabular}[t]{c}\@author\end{tabular}}\par}
-   \vglue 6pt plus 3pt minus 3pt
-  {\normalsize
-   \begin{tabular}[t]{c}\inst{\instnum}\@address\end{tabular}\par}
-   \vglue 6pt plus 3pt minus 3pt
+  % Verifica se o autor foi definido e não está vazio
+  \ifx\@author\@empty
+  \else
+    {\normalsize
+     \textbf{\begin{tabular}[t]{c}\@author\end{tabular}}\par}
+     \vglue 6pt plus 3pt minus 3pt
+    % Verifica se o endereço foi definido
+    \@ifundefined{@address}{}{%
+      {\normalsize
+       \begin{tabular}[t]{c}\inst{\instnum}\@address\end{tabular}\par}
+       \vglue 6pt plus 3pt minus 3pt
+    }%
+  \fi
    \end{center}\par
 }
 \let\maketitleOLD\maketitle

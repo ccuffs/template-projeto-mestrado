@@ -21,6 +21,47 @@ Para uso em anteprojetos de mestrado do Programa de Pós-Graduação em Computa�
 % margem inf 2.5 cm: h? 1,5 cm para foot, + 1 cm para bottom
 % margem esq/dir 3 cm
 \RequirePackage[a4paper,top=3.5cm,left=3cm,right=3cm,bottom=2.5cm]{geometry}
+\usepackage{graphicx,url}
+\usepackage[utf8]{inputenc}
+\usepackage{booktabs}
+% Para inserção de figuras.
+\usepackage{graphicx}
+% Utilize a opção 'pdftex' se você estiver usando o pdflatex (que
+% permite figuras em formatos como .jpg ou .png)
+%\usepackage[pdftex]{graphicx}
+
+% Para tabelas com elementos ocupando mais de uma linha
+\usepackage{multirow}
+% Para frações na mesma linha (ex. ⅓).
+\usepackage{nicefrac}
+% Para inserir figuras lado a lado.
+ \usepackage{subfigure}
+% Para formatar algoritmos.
+% A opção [algo2e] é necessária para evitar conflitos
+% com as definições da classe.
+% https://linorg.usp.br/CTAN/macros/latex/contrib/algorithm2e/doc/algorithm2e.pdf
+\usepackage{algorithmic}
+\usepackage[portuguese,algo2e,boxruled]{algorithm2e}
+% Hyperlink em capitulos, seções, citações
+\usepackage[hidelinks]{hyperref}	
+% Bibliografia e citações padrão ABNT
+%https://mirrors.ibiblio.org/CTAN/macros/latex/contrib/abntex2/doc/abntex2cite-alf.pdf
+% Comandos: \citeonline{ref} \citeauthor{ref} \citeyear{ref}
+%\usepackage[num]{abntex2cite}	% numérica
+\usepackage[alf]{abntex2cite}	% alfabetica
+% Referência cruzada que já coloca o tipo (Tabela, Figura, etc)
+% a opção "brazilian" é para colocar em portugues (retirar a opção 
+% quando escrever o texto em ingles/english
+\usepackage[brazilian]{cleveref} 
+% Pacote para revisão de texto
+% alguns comandos de revisão:
+% \alert{texto entre chaves}  \highlight{texto entre chaves}
+% \remove{texto a ser removido} 
+% \replace{texto original}{texto novo}
+% \comment{texto original}{comentario adicionado}
+% precisa ajustar a margem para evitar warning
+\setlength {\marginparwidth }{2cm}
+\usepackage{easyReview} 
 
 \parindent 1.27cm
 \parskip   6pt

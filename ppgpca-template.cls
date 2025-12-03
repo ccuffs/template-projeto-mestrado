@@ -4,7 +4,18 @@
 % updated march 2005
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{sbc-template}[2001/06/09]
+\ProvidesClass{ppgpca-template}[2025/12/03
+------------------------------------------------------------
+Classe para anteprojetos do PPGPCA/UFFS
+Baseado no estilo SBC (Sociedade Brasileira de Computação)
+Criado originalmente por Jomi Hubner & Rafael Bordini (junho 2001)
+Atualizado em março de 2005
+Convertido de pacote para classe em dezembro de 2025
+Para uso em anteprojetos de mestrado do Programa de Pós-Graduação em Computação Aplicada da Universidade Federal da Fronteira Sul
+------------------------------------------------------------]
+
+% Carregar a classe base article com opção 12pt
+\LoadClass[12pt]{article}
 
 % margem sup 3.5 cm: h? 1,5 cm para header, + 2 cm para top
 % margem inf 2.5 cm: h? 1,5 cm para foot, + 1 cm para bottom

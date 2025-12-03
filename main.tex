@@ -1,8 +1,6 @@
 % Modelo SBC exigido pelo edital
 \documentclass{ppgpca-template}
 
-
-
 \sloppy
 
 \begin{document}
@@ -134,7 +132,7 @@ As legendas das tabelas devem ser posicionadas \textbf{antes} da tabela, conform
 \caption{Variáveis consideradas na avaliação de técnicas de interação}
   \begin{tabular*}{0.75\textwidth}{ccccc}
     \toprule
-    \textbf{ID} & \textbf{\featN{Profissão}}	 & \textbf{\featN{Idade}}	& \textbf{\featN{Proporção}} & \textbf{\featN{Classe}} \\
+    \textbf{ID} & \textbf{\texttt{Profissão}}	 & \textbf{\texttt{Idade}}	& \textbf{\texttt{Proporção}} & \textbf{\texttt{Classe}} \\
     \midrule
       1   & indústria	& 34	& 2.96   & pago  \\
       2   & autônomo	& 41	& 4.64	 & atraso        \\
@@ -162,24 +160,23 @@ Para versões impressas, recomenda-se resolução de aproximadamente 600 dpi par
 As citações devem ser realizadas utilizando o comando padrão \verb|\cite|, conforme práticas da SBC. Alguns exemplos:
 
 \begin{itemize}
-    \item Citação simples: \verb|\cite{autor2010}|;
-    \item Citações múltiplas: \verb|\cite{autor2010,outroautor2015}|. 
+    \item Citação simples: \verb|\cite{knuth:84}|;
+    \item Citações múltiplas: \verb|\cite{turing1936a,EWD:EWD215pub}|. 
+    \item Citação em meio ao texto: \verb|\citeonline{EWD:EWD215pub}|
 \end{itemize}
 
-No corpo do texto, as citações aparecerão entre colchetes, como em \cite{knuth:84}. Recomenda-se citar apenas trabalhos efetivamente utilizados na fundamentação teórica, na discussão da metodologia ou na análise dos resultados.
+No corpo do texto, as citações aparecerão entre colchetes, como em \cite{knuth:84} ou para citações em meio ao texto aparacerão como \citeonline{shannon1948mathematical}\footnote{Como usado em ``De acordo com \citeonline{shannon1948mathematical} ... ''}. Para  Recomenda-se citar apenas trabalhos efetivamente utilizados na fundamentação teórica, na discussão da metodologia ou na análise dos resultados.
 
-A lista de referências deve seguir o estilo definido pelo pacote \texttt{sbc-template}, sendo automaticamente formatada pelos comandos:
+A lista de referências deve seguir o estilo definido pelo pacote \texttt{abntex2cite}, sendo automaticamente formatada pelos comandos:
 
 \begin{verbatim}
-\bibliographystyle{sbc}
-\bibliography{sbc-template}
+\bibliography{bibliografia}
 \end{verbatim}
 
 A primeira linha de cada referência não deve ter recuo, enquanto as subsequentes devem ser indentadas em aproximadamente 0,5 cm.
 
 As referências bibliográficas devem ser claras, consistentes e seguir o estilo SBC. Utilize o ambiente de bibliografia configurado no arquivo \texttt{.bib} associado ao projeto, incluindo apenas obras que foram efetivamente citadas no texto.
 
-\bibliographystyle{sbc}
-\bibliography{sbc-template}
+\bibliography{bibliogafia}
 
 \end{document}

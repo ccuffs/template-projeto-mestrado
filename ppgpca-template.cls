@@ -29,7 +29,7 @@ Para uso em anteprojetos de mestrado do Programa de Pós-Graduação em Computa�
 % Utilize a opção 'pdftex' se você estiver usando o pdflatex (que
 % permite figuras em formatos como .jpg ou .png)
 %\usepackage[pdftex]{graphicx}
-
+\usepackage[bottom]{footmisc}
 % Para tabelas com elementos ocupando mais de uma linha
 \usepackage{multirow}
 % Para frações na mesma linha (ex. ⅓).
@@ -49,6 +49,7 @@ Para uso em anteprojetos de mestrado do Programa de Pós-Graduação em Computa�
 % Comandos: \citeonline{ref} \citeauthor{ref} \citeyear{ref}
 %\usepackage[num]{abntex2cite}	% numérica
 \usepackage[alf]{abntex2cite}	% alfabetica
+\renewcommand{\refname}{Referências}
 % Referência cruzada que já coloca o tipo (Tabela, Figura, etc)
 % a opção "brazilian" é para colocar em portugues (retirar a opção 
 % quando escrever o texto em ingles/english
@@ -66,7 +67,8 @@ Para uso em anteprojetos de mestrado do Programa de Pós-Graduação em Computa�
 \parindent 1.27cm
 \parskip   6pt
 
-\flushbottom
+% \flushbottom
+\raggedbottom
 
 % captions
 \RequirePackage[bf,sf,footnotesize,indent]{caption2}
@@ -89,36 +91,6 @@ Para uso em anteprojetos de mestrado do Programa de Pós-Graduação em Computa�
 \newcommand{\nextinstitute}{\\\mbox{}\\[-6pt] \addtocounter{instn}{1}\inst{\instnum}}
 \newcommand{\email}[1]{\\\mbox{}\\[-6pt]\footnotesize\texttt{#1}}
 \renewcommand{\and}{, }
-
-% to avoid [...] in the bibliography
-% \item[] instead of \item[\@biblabel{#1}\hfill]
-\def\@lbibitem[#1]#2{\item[]\if@filesw
-      {\let\protect\noexpand
-       \immediate
-       \write\@auxout{\string\bibcite{#2}{#1}}}\fi\ignorespaces}
-\renewenvironment{thebibliography}[1]
-     {\section*{\refname
-        \@mkboth{\MakeUppercase\refname}{\MakeUppercase\refname}}%
-      \list{\@biblabel{\@arabic\c@enumiv}}%
-           {\settowidth\labelwidth{\@biblabel{#1}}%
-            \leftmargin\labelwidth
-            \advance\leftmargin\labelsep
-            %% changed!
-               \itemindent -\leftmargin
-               \itemsep 6pt
-            %%%%%%%%%%%
-            \@openbib@code
-            \usecounter{enumiv}%
-            \let\p@enumiv\@empty
-            \renewcommand\theenumiv{\@arabic\c@enumiv}}%
-      \sloppy
-      \clubpenalty4000
-      \@clubpenalty \clubpenalty
-      \widowpenalty4000%
-      \sfcode`\.\@m}
-     {\def\@noitemerr
-       {\@latex@warning{Empty `thebibliography' environment}}%
-      \endlist}
 
 
 % itens
@@ -227,3 +199,25 @@ Para uso em anteprojetos de mestrado do Programa de Pós-Graduação em Computa�
       \rightmargin\leftmargin}\item[\hskip\labelsep
                                     \bfseries\itshape Resumo.]\itshape}%
       {\endlist}
+
+\makeatletter
+
+% Redefinição do ambiente thebibliography apenas para ajustar espaçamento
+\renewenvironment{thebibliography}[1]
+{
+  \section*{\refname}%
+  \begin{list}{\@biblabel{\@arabic\c@enumiv}}%
+  {
+    \usecounter{enumiv}%
+    \setlength{\leftmargin}{1.27cm}%
+    \setlength{\itemsep}{8pt}% Espaçamento entre itens
+    \setlength{\parsep}{4pt}% Espaçamento entre parágrafos dentro do mesmo item
+    \setlength{\labelwidth}{1cm}%
+    \setlength{\labelsep}{0.5em}%
+  }
+}
+{
+  \end{list}%
+}
+
+\makeatother
